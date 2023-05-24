@@ -16,7 +16,7 @@
     in
     rec {
       none = nvim (p: []);
-      some = nvim (p: [p.lua]);
+      some = nvim (p: [p.julia]);
       all = pkgs.neovim.override {
         configure.packages.treesitter-example.start =
           [pkgs.vimPlugins.nvim-treesitter.withAllGrammars];
