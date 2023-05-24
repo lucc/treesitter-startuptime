@@ -9,6 +9,9 @@
     packages.x86_64-linux =
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.overrideAttrs (oa: {
+        src = treesitter;
+      });
       nvim = select: pkgs.neovim.override {
         configure.packages.treesitter-example.start =
           [(pkgs.vimPlugins.nvim-treesitter.withPlugins select)];
