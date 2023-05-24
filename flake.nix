@@ -31,6 +31,8 @@
           -n some "${some}/bin/nvim --headless -cq" \
           -n all "${all}/bin/nvim --headless -cq"
       '';
+      plugin = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+      plugin' = nvim-treesitter.withAllGrammars;
     };
   };
 }
