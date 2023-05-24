@@ -23,14 +23,14 @@
       all = pkgs.neovim.override {
         configure.packages.treesitter-example.start =
           [nvim-treesitter.withAllGrammars];
-        };
-        default = pkgs.writeShellScriptBin "compare" ''
-          ${pkgs.hyperfine}/bin/hyperfine \
+      };
+      default = pkgs.writeShellScriptBin "compare" ''
+        ${pkgs.hyperfine}/bin/hyperfine \
           -n plain "${pkgs.neovim}/bin/nvim --headless -cq" \
           -n none "${none}/bin/nvim --headless -cq" \
           -n some "${some}/bin/nvim --headless -cq" \
           -n all "${all}/bin/nvim --headless -cq"
-        '';
-      };
+      '';
     };
-  }
+  };
+}
