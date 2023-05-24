@@ -14,7 +14,7 @@
       });
       nvim = select: pkgs.neovim.override {
         configure.packages.treesitter-example.start =
-          [(pkgs.vimPlugins.nvim-treesitter.withPlugins select)];
+          [(nvim-treesitter.withPlugins select)];
       };
     in
     rec {
@@ -22,7 +22,7 @@
       some = nvim (p: [p.julia]);
       all = pkgs.neovim.override {
         configure.packages.treesitter-example.start =
-          [pkgs.vimPlugins.nvim-treesitter.withAllGrammars];
+          [nvim-treesitter.withAllGrammars];
         };
         default = pkgs.writeShellScriptBin "compare" ''
           ${pkgs.hyperfine}/bin/hyperfine \
